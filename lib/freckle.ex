@@ -7,9 +7,9 @@ defmodule Freckle do
   Enrtry Point
   """
   def main(args \\ []) do
-     args
-      |> digest_arguments
-      |> process
+    args
+    |> digest_arguments
+    |> process
   end
 
   defp digest_arguments(args) do

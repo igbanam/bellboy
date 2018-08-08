@@ -28,3 +28,15 @@ use Mix.Config
 # here (which is why it is important to import them last).
 #
 #     import_config "#{Mix.env}.exs"
+
+configuration = case File.read(Path.expand("~/.bellboy")) do
+  { :ok, bellboy_instructions } ->
+    bellboy_instructions
+    |> String.split("\n")
+    |> Enum.reject(fn x -> x == "" end)
+    |> Enum.map(fn pair -> pair |> String.split("=") end)
+    |> Enum.map(fn [a, b] -> { a |> String.downcase |> String.to_atom, b } end)
+  { :error, :enoent } -> :ok
+end
+
+config :freckle, configuration
