@@ -1,9 +1,9 @@
-defmodule Freckle.MixProject do
+defmodule Bellboy.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :freckle,
+      app: :bellboy,
       version: "0.1.0",
       elixir: "~> 1.6",
       start_permanent: Mix.env() == :prod,
@@ -28,6 +28,6 @@ defmodule Freckle.MixProject do
   end
 
   defp escript do
-    [main_module: Freckle]
+    [main_module: Bellboy]
   end
 end

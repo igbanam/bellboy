@@ -1,6 +1,6 @@
-defmodule Freckle do
+defmodule Bellboy do
   @moduledoc """
-  Documentation for Freckle.
+  Documentation for Bellboy.
   """
 
   @doc """
@@ -30,9 +30,9 @@ defmodule Freckle do
     """
     USAGE
     =====
-      freckle --project PROJECT --for HH:MM:SS
-      freckle [-h | --help]
-      freckle [-v | --version]
+      bellboy --project PROJECT --for HH:MM:SS
+      bellboy [-h | --help]
+      bellboy [-v | --version]
 
     ARGS
     ====

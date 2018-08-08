@@ -39,4 +39,4 @@ configuration = case File.read(Path.expand("~/.bellboy")) do
   { :error, :enoent } -> :ok
 end
 
-config :freckle, configuration
+config :bellboy, configuration

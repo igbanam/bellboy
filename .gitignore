@@ -22,3 +22,5 @@ erl_crash.dump
 # Ignore package tarball (built via "mix hex.build").
 freckle-*.tar
 
+# Ignore the executable (build via "mix escript.build).
+bellboy
