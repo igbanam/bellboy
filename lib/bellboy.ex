@@ -16,11 +16,16 @@ defmodule Bellboy do
     options =
       args
       |> OptionParser.parse(
-        switches: [help: :boolean, version: :boolean],
+        switches: [
+          for: :integer,
+          help: :boolean,
+          version: :boolean
+        ],
         aliases: [h: :help, v: :version])
 
     case options do
       { [ help: true ], _, _ }    -> :help
+      { [], ["projects"], [] }    -> :list_projects
       { [ version: true ], _, _ } -> :version
       _                           -> :help
     end
@@ -41,6 +46,10 @@ defmodule Bellboy do
         HH:MM:SS   Hours, minutes, and seconds you want to log
     """
     |> IO.puts
+  end
+
+  defp process(:list_projects) do
+    Bellboy.Freckle_Client.list(:projects)
   end
 
   defp process(:version) do
