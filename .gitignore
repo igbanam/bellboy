@@ -23,4 +23,4 @@ erl_crash.dump
 freckle-*.tar
 
 # Ignore the executable (build via "mix escript.build).
-bellboy
+/bellboy
