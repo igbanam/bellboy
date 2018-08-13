@@ -53,6 +53,6 @@ defmodule Bellboy do
   end
 
   defp process(:version) do
-    IO.puts("Version 0.0.0")
+    IO.puts("Version 0.1.0")
   end
 end
