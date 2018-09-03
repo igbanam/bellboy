@@ -47,7 +47,7 @@ defmodule Bellboy do
     ARGS
     ====
 
-        PROJECT_ID    The project to log time for
+        PROJECT_ID    The ID of the PROJECT to log time for
         TIME          Time in minutes
     """
     |> IO.puts
