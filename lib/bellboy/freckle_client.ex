@@ -33,7 +33,7 @@ defmodule Bellboy.Freckle_Client do
 
   defp headers do
     [
-      "X-FreckleToken": Application.get_env(:bellboy, :freckle_token)
+      "X-FreckleToken": Application.get_env(:bellboy, :personal_access_token)
     ]
   end
 end
