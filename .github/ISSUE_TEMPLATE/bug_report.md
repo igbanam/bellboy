@@ -1,6 +1,9 @@
 ---
 name: Bug report
 about: Create a report to help us improve
+title: ''
+labels: ''
+assignees: ''
 
 ---
 
@@ -19,8 +22,5 @@ A clear and concise description of what you expected to happen.
 **Visuals**
 If applicable, add screenshots or error dumps to help explain your problem.
 
-**Desktop (please complete the following information):**
- - OS: [e.g. iOS]
-
 **Additional context**
-Add any other context about the problem here.
+Add any other context here. How did it make you feel?

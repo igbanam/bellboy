@@ -1,6 +1,9 @@
 ---
 name: Feature request
 about: Add something to this project
+title: ''
+labels: ''
+assignees: ''
 
 ---
 
