@@ -5,7 +5,9 @@
 ## Installation
 
 ### From Binary
-- Download the executable file 
+- Download the executable file
+- Run `chmod +x bellboy`
+- Move `bellboy` to somewhere in your path
 
 ### From the repository
 - Clone the repository
