@@ -1,48 +1,31 @@
 version: 2
 jobs:
   build:
-    parallelism: 1
     docker:
-      - image: circleci/elixir:1.7.3
-        environment:
-          MIX_ENV: test
-
-    working_directory: ~/app
-
+      # Bump cache key version below when changing elixir version
+      - image: circleci/elixir:1.6
     steps:
       - checkout
-
+      - run:
+          name: Create dummy configuration file
+          command: echo "PERSONAL_ACCESS_TOKEN=pat" > ~/.bellboy
+      - restore_cache:
+          keys:
+            - v4-dependency-cache-{{ checksum "mix.lock" }}
+            - v4-dependency-cache
       - run: mix local.hex --force
       - run: mix local.rebar --force
-
-      - restore_cache:
-          keys:
-            - v1-mix-cache-{{ .Branch }}-{{ checksum "mix.lock" }}
-            - v1-mix-cache-{{ .Branch }}
-            - v1-mix-cache
-      - restore_cache:
-          keys:
-            - v1-build-cache-{{ .Branch }}
-            - v1-build-cache
-      - run: mix do deps.get, compile
+      - run: mix deps.get
+      - run: mix deps.compile
+      - run: mix compile
+      - run:
+          command: mix compile
+          environment:
+            MIX_ENV: test
       - save_cache:
-          key: v1-mix-cache-{{ .Branch }}-{{ checksum "mix.lock" }}
-          paths: "deps"
-      - save_cache:
-          key: v1-mix-cache-{{ .Branch }}
-          paths: "deps"
-      - save_cache:
-          key: v1-mix-cache
-          paths: "deps"
-      - save_cache:
-          key: v1-build-cache-{{ .Branch }}
-          paths: "_build"
-      - save_cache:
-          key: v1-build-cache
-          paths: "_build"
-
+          key: v3-dependency-cache-{{ checksum "mix.lock" }}
+          paths:
+            - _build
+            - deps
+            - ~/.mix
       - run: mix test
-
-      - store_test_results:
-          path: _build/test/lib/bellboy
-
