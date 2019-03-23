@@ -6,6 +6,9 @@ jobs:
       - image: circleci/elixir:1.6
     steps:
       - checkout
+      - run:
+        name: "Create dummy configuration file"
+        command: echo "PERSONAL_ACCESS_TOKEN=pat" >> ~/.bellboy
       - restore_cache:
           keys:
             - v4-dependency-cache-{{ checksum "mix.lock" }}
