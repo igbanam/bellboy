@@ -8,7 +8,7 @@ jobs:
       - checkout
       - run:
         name: "Create dummy configuration file"
-        command: echo "PERSONAL_ACCESS_TOKEN=pat" >> ~/.bellboy
+        command: echo "PERSONAL_ACCESS_TOKEN=pat" > ~/.bellboy
       - restore_cache:
           keys:
             - v4-dependency-cache-{{ checksum "mix.lock" }}
