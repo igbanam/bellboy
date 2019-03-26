@@ -1,4 +1,5 @@
 if [[ ! -x `which elixir` ]]
+then
   brew install elixir
 fi
 
