@@ -10,7 +10,7 @@ use Mix.Config
 
 # You can configure your application as:
 #
-#     config :freckle, key: :value
+#     config :nokotime, key: :value
 #
 # and access this configuration in your application as:
 #
